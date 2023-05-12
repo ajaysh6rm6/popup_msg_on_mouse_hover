@@ -1,0 +1,43 @@
+>>>CSS
+/* HOVER STYLES */ 
+div#pop-up {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #3f76b4;
+  color: #000000;
+  border: 1px solid #1a1a1a;
+  font-size: 90%;
+}
+
+
+>>>HTML
+<a href="#" class="trigger">link</a>   
+<!-- HIDDEN / POP-UP DIV -->
+<div id="pop-up">
+   <p>your text here</p>
+</div>
+
+
+>>>JS
+	<script>
+		 $(function() {
+   var moveLeft = 20;
+   var moveDown = 10;
+
+   $('a.trigger').hover(function(e) {
+     $('div#pop-up').show();
+     //.css('top', e.pageY + moveDown)
+     //.css('left', e.pageX + moveLeft)
+     //.appendTo('body');
+   }, function() {
+     $('div#pop-up').hide();
+   });
+
+   $('a.trigger').mousemove(function(e) {
+     $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+   });
+
+ });
+	</script>
